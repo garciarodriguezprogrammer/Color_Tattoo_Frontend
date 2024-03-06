@@ -1,8 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import {loginCall} from "../../services/apiCalls"
 
-function LoginForm() {
+ export function LoginForm() {
     const [loginData, setLoginData] = useState({
         email: "",
         password: ""
@@ -15,14 +14,9 @@ function LoginForm() {
     }
     const handelSubmit = async (event) => {
         event.preventDefault();
-        try {
-            const response = await axios.post("http://localhost:3000/api/auth/login", loginData)
-            console.log("Mensaje" + response.data.message)
-            console.log("Token " + response.data.token)
-        } catch (error) {
-            console.log("Error:"+ error)
-        }
-        console.log(loginData);
+        const res = loginCall(loginData)
+        console.log("Mensaje" + res.data.message)
+        console.log("Token " + res.data.token)
     }
     return (
         <div className="container mt-5 row">
@@ -36,4 +30,5 @@ function LoginForm() {
     )
 }
 
-export default LoginForm;
+
+

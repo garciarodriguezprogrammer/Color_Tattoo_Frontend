@@ -1,9 +1,6 @@
 import { useState } from "react";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
-import LoginForm from "./loginForm";
-import axios from "axios";
-
-function RegisterForm(){
+import { registerCall } from "../../services/apiCalls";
+export function RegisterForm(){
     // useState para agregar funcionalidades a los componentes
     //formData sera la variable donde guardaremos los datos del usuario que se registra
     const [formData, setFormData] = useState({
@@ -21,11 +18,9 @@ function RegisterForm(){
     //Evento que usamos para hacer la request al servidor para registrar un usuario
     const handelSubmit = async(event) => {
         event.preventDefault();
-        try {
-            const response = await axios.post("http://localhost:3000/api/auth/register", formData)
-            console.log("Mensaje" + response.data.message)
-        } catch (error) {
-            console.log("Error:"+ error)
+        const res = registerCall(formData)
+        if (res) {
+            console.log("Registro exitoso")
         }
     }
 
@@ -43,4 +38,3 @@ function RegisterForm(){
     )
 }
 
-export default RegisterForm;

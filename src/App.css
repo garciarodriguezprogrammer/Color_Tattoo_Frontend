@@ -41,6 +41,7 @@
   color: #888;
 }
 
+/* A partir de aquí hemos escrito nosotros */
 div{
   display: flex;
   flex-direction: row;
