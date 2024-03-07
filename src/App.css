@@ -42,9 +42,9 @@
 }
 
 /* A partir de aquí hemos escrito nosotros */
-div{
+/* div{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-}
+} */
