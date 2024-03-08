@@ -30,8 +30,6 @@ export function RegisterForm(){
                 errorRef.current.style.display = "block"
             }
         }) 
-        
-       
     }
 
     return(
