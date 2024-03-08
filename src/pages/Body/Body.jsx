@@ -5,7 +5,8 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import { Home } from "../Home/Home"
 import { LoginForm } from "../Login/Login"
 import { RegisterForm } from "../Register/Register"
-
+import { Profile } from "../Profile/Profile"
+import { GetMyAppointments } from "../MyAppiontments/MyAppointments"
 
 
 export const Body = () => {
@@ -17,6 +18,8 @@ export const Body = () => {
                 <Route path="/" element={<Home/>} /> {/* //Aqui indicamos la ruta de la vista del Home, componente de React */}
                 <Route path="/login/" element={<LoginForm/>}></Route>
                 <Route path="/register/" element={<RegisterForm/>}></Route>
+                <Route path="/profile/" element={<Profile/>}></Route>
+                <Route path="/getAppointments/" element={<GetMyAppointments/>}></Route>
             </Routes>
         </>
     )

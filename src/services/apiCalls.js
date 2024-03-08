@@ -18,4 +18,13 @@ export const registerCall = async(formData) => {
     }
 }
 
+export const myAppointmentsCall = async(token, id) => {
+    try {
+        const response = await axios.post("http://localhost:3000/api/appointments/getAppointmentByClient/" + id, token)     
+        return response.data
+    } catch (error) {
+        console.error("Error:" + error) 
+    }
+} 
+
 export default {loginCall}

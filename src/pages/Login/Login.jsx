@@ -29,7 +29,9 @@ import { jwtDecode } from "jwt-decode";
             } else {
                 const decodedToken = jwtDecode(res.token)
                 const isUser = decodedToken.rol.includes("user")
-                console.log(decodedToken)
+                console.log(decodedToken.id)
+                localStorage.setItem("id", decodedToken.id)  //Hemos gardado el id en localStorage para que sea accesible en toda la pagina y evitar llamadas a la api
+                localStorage.setItem("token", res.token)  //Hemos gardado el token en localStorage para que sea accesible en toda la pagina y evitar llamadas a la api
                 if (isUser) {
                     navegar("/profile")
                 }
