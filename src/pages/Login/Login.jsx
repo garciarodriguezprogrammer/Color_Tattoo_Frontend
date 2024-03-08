@@ -29,19 +29,26 @@ import { jwtDecode } from "jwt-decode";
             } else {
                 const decodedToken = jwtDecode(res.token)
                 const isUser = decodedToken.rol.includes("user")
-                console.log(decodedToken.id)
+                const isArtist = decodedToken.rol.includes("artist")
+                const isAdmin = decodedToken.rol.includes("admin")
+
+                
                 localStorage.setItem("id", decodedToken.id)  //Hemos gardado el id en localStorage para que sea accesible en toda la pagina y evitar llamadas a la api
                 localStorage.setItem("token", res.token)  //Hemos gardado el token en localStorage para que sea accesible en toda la pagina y evitar llamadas a la api
                 if (isUser) {
                     navegar("/profile")
+                } else if(isArtist) {
+                    navegar("/profileArtist")
+                } else if (isAdmin) {
+                    navegar ("/profileAdmin")
                 }
             }
         })
-        // console.log("Mensaje" + res.data.message)
-        // console.log("Token " + res.data.token)
+ 
     }
     return (
         <div className="container mt-5 row">
+             <div className="container bg-danger" ref={errorRef} style={{display:"none"}}>This user already exists</div>
             <form onSubmit={handleSubmit}>
                 <AuthInput type={"text"} placeholder={"Email"} handler={handleChange} name={"email"} /> <br /> <br />
                 <AuthInput type={"password"} placeholder={"Password"} handler={handleChange} name={"password"} />
