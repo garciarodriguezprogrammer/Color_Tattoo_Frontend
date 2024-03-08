@@ -2,6 +2,7 @@ import { useState } from "react";
 import { registerCall } from "../../services/apiCalls";
 import { AuthInput } from "../../Components/AuthInput/AuthInput";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function RegisterForm(){
     //useRef para hacer referencias a elementos Html
@@ -20,6 +21,8 @@ export function RegisterForm(){
             [event.target.name]: event.target.value
         })
     }
+    const navegar = useNavigate()
+
     //Evento que usamos para hacer la request al servidor para registrar un usuario
     const handleSubmit = async(event) => {
         event.preventDefault();
@@ -29,12 +32,17 @@ export function RegisterForm(){
             if(!data) {
                 errorRef.current.style.display = "block"
             }
+            else {
+                navegar("/login")
+            }
         }) 
     }
 
     return(
         <div>
+            {/* El siguiente div es para el error al registrarse */}
             <div className="container bg-danger" ref={errorRef} style={{display:"none"}}>This user already exists</div>
+           {/* Formulario de registro, importamos AuthInput desde componentes */}
             <form onSubmit={handleSubmit}>
                 <AuthInput type={"text"} placeholder= {"Name"} name={"userName"} handler={handleChange}/>
                 <AuthInput type={"text"} placeholder= {"Email"} name={"email"} handler={handleChange}/>
@@ -47,15 +55,3 @@ export function RegisterForm(){
     )
 }
 
-// return(
-//     <div>
-//         <form onSubmit={handelSubmit}>
-//             <AuthInput type="text" placeholder= "Name" name="userName" onChange={handelChange}/>
-//             <AuthInput type="text" placeholder= "Email" name="email" onChange={handelChange}/>
-//             <AuthInput type="password" placeholder= "Password" name="password" onChange={handelChange}/>
-//             {/* Evento para envío de formularios */}
-//             <button type="submit">Register</button> 
-//         </form>
-        
-//     </div>
-// )
