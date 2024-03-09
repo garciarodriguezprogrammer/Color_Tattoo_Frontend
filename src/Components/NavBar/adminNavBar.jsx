@@ -20,12 +20,16 @@ export const AdminNavBar = () => {
               <NavDropdown.Item href="#action/3.2">
                 Ejemplo_2
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Ejemplo_3</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="home">
-                Salir
+              <NavDropdown.Item href="#home">
+                Ejemplo_4
               </NavDropdown.Item>
             </NavDropdown>
+            <NavDropdown title="Citas" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#users">Ver todas las citas</NavDropdown.Item>
+            </NavDropdown>
+
             <Nav.Link href="salir">Salir</Nav.Link>
           </Nav>
         </Navbar.Collapse>
