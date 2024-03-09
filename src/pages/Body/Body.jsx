@@ -7,7 +7,8 @@ import { LoginForm } from "../Login/Login"
 import { RegisterForm } from "../Register/Register"
 import { Profile } from "../Profile/Profile"
 import { GetMyAppointments } from "../MyAppiontments/MyAppointments"
-
+import { ArtistNavBar } from "../../Components/NavBar/artistNavBar"
+import { AdminNavBar } from "../../Components/NavBar/adminNavBar"
 
 export const Body = () => {
 
@@ -20,6 +21,8 @@ export const Body = () => {
                 <Route path="/register/" element={<RegisterForm/>}></Route>
                 <Route path="/profile/" element={<Profile/>}></Route>
                 <Route path="/getAppointments/" element={<GetMyAppointments/>}></Route>
+                <Route path="/profileArtist/" element={<ArtistNavBar/>}></Route>
+                <Route path="/profileAdmin/" element={<AdminNavBar/>}></Route>
             </Routes>
         </>
     )
