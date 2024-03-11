@@ -7,8 +7,11 @@ import { LoginForm } from "../Login/Login"
 import { RegisterForm } from "../Register/Register"
 import { Profile } from "../Profile/Profile"
 import { GetMyAppointments } from "../MyAppiontments/MyAppointments"
-import { ArtistNavBar } from "../../Components/NavBar/artistNavBar"
 import { AdminNavBar } from "../../Components/NavBar/adminNavBar"
+import { AllUsers } from "../AllUsers/AllUsers"
+import { ArtistProfile } from "../Profile/ArtistProfile"
+import { NuevaCita } from "../NuevaCita/NuevaCita"
+import { AdminProfile } from "../Profile/AdminProfile"
 
 export const Body = () => {
 
@@ -21,8 +24,11 @@ export const Body = () => {
                 <Route path="/register/" element={<RegisterForm/>}></Route>
                 <Route path="/profile/" element={<Profile/>}></Route>
                 <Route path="/getAppointments/" element={<GetMyAppointments/>}></Route>
-                <Route path="/profileArtist/" element={<ArtistNavBar/>}></Route>
-                <Route path="/profileAdmin/" element={<AdminNavBar/>}></Route>
+                <Route path="/profileArtist/" element={<ArtistProfile/>}></Route>
+                <Route path="/profileAdmin/" element={<AdminProfile/>}></Route>
+                <Route path="/allUsers/" element={<AllUsers/>}></Route>
+                <Route path="/nuevaCita/" element={<NuevaCita/>}></Route>
+          
             </Routes>
         </>
     )

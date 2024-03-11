@@ -15,7 +15,7 @@ export const AdminNavBar = () => {
           <Nav className="me-auto">
             <Nav.Link href="nada">Home</Nav.Link>
             <NavDropdown title="Usuarios" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#users">Ver todos los usuarios</NavDropdown.Item>
+              <NavDropdown.Item href="allUsers">Ver todos los usuarios</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.1">Ejemplo_1</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Ejemplo_2

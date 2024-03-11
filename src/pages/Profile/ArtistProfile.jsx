@@ -1,10 +1,10 @@
-import { NavBar } from "../../Components/NavBar/NavBar";
+import { ArtistNavBar } from "../../Components/NavBar/artistNavBar";
 import { useState, useEffect } from "react";
 import { GetProfileData } from "../../services/apiCalls";
 
 
 
-export const Profile = () => {
+export const ArtistProfile = () => {
 
     const [datos, setDatos] = useState(null)
 
@@ -22,7 +22,7 @@ export const Profile = () => {
     return (
         <>
 
-            <NavBar />
+            <ArtistNavBar />
             <div className="d-flex justify-contents-center">
                 <div className="w-80">
                    {
@@ -30,7 +30,7 @@ export const Profile = () => {
                      <div className="card"> 
                      <div className="card-body">
                       <>
-                      <h2>Nombre de usuario: {datos.userName}</h2><h3>Email: {datos.email}</h3></>  
+                      <h2>Nombre de artista: {datos.userName}</h2><h3>Email: {datos.email}</h3></>  
                       </div>
                       </div>
                     )

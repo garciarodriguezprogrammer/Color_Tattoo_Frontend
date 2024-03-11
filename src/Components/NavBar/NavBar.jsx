@@ -22,7 +22,7 @@ export const NavBar = () => {
               <NavDropdown.Item href="#action/3.2">
                 Eliminar cita
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item href="nuevaCita">Nueva cita</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Separated link
