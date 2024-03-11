@@ -3,6 +3,7 @@ import './AllUsers.css'
 import { BringAllUsers } from '../../services/apiCalls'
 import { AllUsersCard } from '../../Components/AllUsersCard/AllUsersCard'
 import { AdminNavBar } from '../../Components/NavBar/adminNavBar'
+import "./AllUsers.css"
 
 
 
@@ -31,7 +32,7 @@ export const AllUsers = () => {
             <div className="apiCallButton" onClick={loginHandler}>Login</div> */}
 
             {/* Esto a continuacion tiene que quedarse */}
-            <div className="characterContainer">
+            <div className="citasContainer">
                 {users.length > 0 && (
                     <>
                         {users.map((user) => {

@@ -3,9 +3,20 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom'; 
 
 
 export const NavBar = () => {
+
+  const navegar = useNavigate()  
+  const token = localStorage.getItem('token')
+  const logMeOut = () => {
+     localStorage.setItem('token', '')  
+     setTimeout(() => {
+      navegar('/home')
+     }, 600)
+    }
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -28,7 +39,7 @@ export const NavBar = () => {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="salir">Salir</Nav.Link>
+            <NavDropdown.Item onClick={() => logMeOut()}>Cerrar sesión</NavDropdown.Item>
           </Nav>
         </Navbar.Collapse>
       </Container>

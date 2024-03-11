@@ -3,9 +3,21 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom'; //sino sale borro esto
 
 
 export const AdminNavBar = () => {
+
+  // esto es lo nuevo
+  const navegar = useNavigate()  
+  const token = localStorage.getItem('token')
+  const logMeOut = () => {
+     localStorage.setItem('token', '')  
+     setTimeout(() => {
+      navegar('/home')
+     }, 600)
+    }
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -30,7 +42,7 @@ export const AdminNavBar = () => {
               <NavDropdown.Item href="#users">Ver todas las citas</NavDropdown.Item>
             </NavDropdown>
 
-            <Nav.Link href="salir">Salir</Nav.Link>
+            <NavDropdown.Item onClick={() => logMeOut()}>Cerrar sesión</NavDropdown.Item>
           </Nav>
         </Navbar.Collapse>
       </Container>
