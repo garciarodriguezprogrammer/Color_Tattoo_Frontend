@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { GetProfileData } from "../../services/apiCalls";
 
 
-
 export const AdminProfile = () => {
 
     const [datos, setDatos] = useState(null)
