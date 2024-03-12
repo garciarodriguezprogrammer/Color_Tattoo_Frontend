@@ -27,7 +27,7 @@ export const ArtistNavBar = () => {
           <Nav className="me-auto">
             <Nav.Link href="nada">Home</Nav.Link>
             <NavDropdown title="Mis citas" id="basic-nav-dropdown">
-              <NavDropdown.Item href="getAppointments">Ver citas</NavDropdown.Item>
+              <NavDropdown.Item href="/appointmentsArtists">Ver citas</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.1">Modificar</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Eliminar cita

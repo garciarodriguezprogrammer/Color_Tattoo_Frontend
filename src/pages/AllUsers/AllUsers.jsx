@@ -4,6 +4,7 @@ import { BringAllUsers } from '../../services/apiCalls'
 import { AllUsersCard } from '../../Components/AllUsersCard/AllUsersCard'
 import { AdminNavBar } from '../../Components/NavBar/adminNavBar'
 import "./AllUsers.css"
+import { DeleteUsers } from '../../services/apiCalls'
 
 
 
@@ -20,7 +21,17 @@ export const AllUsers = () => {
          })        
     }, [])
 
-
+    const eliminarUsuario = (id) => {
+        console.log("Se ha eliminado el usuario con id" + id)
+        const token = localStorage.getItem('token')
+        DeleteUsers(token, id)
+            .then((res) => {
+                console.log(res)
+                //Para volver a cargar las citas, y que desaparezca la que se ha eliminado
+                const updateUsers = users.filter(user => user.id !== id) 
+                setUsers(updateUsers)
+            })
+    }
 
     return (
         <>
@@ -39,7 +50,9 @@ export const AllUsers = () => {
                             return (<AllUsersCard
                                 key={user.id}                                
                                 userName={user.userName}
-                                email={user.email}>
+                                email={user.email}
+                                eliminarUsuario={() => eliminarUsuario(user.id)}
+                                >
                             </AllUsersCard>
                             )
                         })}

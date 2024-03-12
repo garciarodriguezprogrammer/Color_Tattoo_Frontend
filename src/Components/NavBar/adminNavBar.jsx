@@ -40,7 +40,7 @@ export const AdminNavBar = () => {
               </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Citas" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#users">Ver todas las citas</NavDropdown.Item>
+              <NavDropdown.Item href="/appointmentsAdmin">Ver todas las citas</NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown.Item onClick={() => logMeOut()}>Cerrar sesión</NavDropdown.Item>

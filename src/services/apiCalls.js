@@ -31,6 +31,49 @@ export const myAppointmentsCall = async(token, id) => {
     }
 } 
 
+export const myAppointmentsCallArtist = async(token, id) => {
+    try {
+        const response = await axios.get("http://localhost:3000/api/appointments/getAppointmentByArtist/" + id, {
+            headers: {"Authorization": `Bearer ${token}`}
+        })        
+        return response.data   
+    } catch (error) {
+        console.error("Error:" + error) 
+    }
+} 
+
+export const myAppointmentsCallAdmin = async(token) => {
+    const res = await axios.get("http://localhost:3000/api/appointments/getAppointments", {
+        headers: {"Authorization": `Bearer ${token}`}
+    })
+    return res.data
+}
+
+
+
+export const DeleteAppointment = async(token, id) => {
+    try {
+        const response = await axios.delete("http://localhost:3000/api/appointments/deleteAppointment/" + id, {
+            headers: {"Authorization": `Bearer ${token}`}
+        }) 
+        console.log(response.data)    
+        return response.data
+    } catch (error) {
+        console.error("Error:" + error) 
+    }
+} 
+export const DeleteUsers = async(token, id) => {
+    try {
+        const response = await axios.delete("http://localhost:3000/api/users/deleteUserById/" + id, {
+            headers: {"Authorization": `Bearer ${token}`}
+        }) 
+        console.log(response.data)    
+        return response.data
+    } catch (error) {
+        console.error("Error:" + error) 
+    }
+} 
+
 export const getArtistById = async(token, id) => {
     try {
         const response = await axios.get("http://localhost:3000/api/users/getArtistById/" + id, {
@@ -83,6 +126,7 @@ export const GuardarCita = async(datosCita, token) => {
         console.error("Error:" + error) 
     }
 }
+
 
 
 export default {loginCall}

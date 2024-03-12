@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
-import { myAppointmentsCall } from "../../services/apiCalls"
-import { NavBar } from "../../Components/NavBar/NavBar"
+import { ArtistNavBar } from "../../Components/NavBar/artistNavBar"
 import "./MyAppointments.css"
 import { ArtistAppointmentsCard } from "../../Components/AppointmentsCards/ArtistAppointmentsCards"
+import { myAppointmentsCallArtist } from "../../services/apiCalls"
 
 export const GetMyAppointmentsArtist = () => {
 
     const [appointments, setAppointments] = useState([])
-    const [artist, setArtist] = useState([])
     
     //Esta funcion es un ejemplo de cuando recuperamos el token para ejecutar la funcion
     useEffect(() => { 
@@ -15,17 +14,18 @@ export const GetMyAppointmentsArtist = () => {
         const token = localStorage.getItem("token")
         console.log(id)
         if(id && token) {
-            myAppointmentsCall(token, id)
-            .then((res) => {
-                console.log(res)
-                setAppointments(res)
+            myAppointmentsCallArtist(token, id)
+            .then((response) => {                
+                console.log(response)                     
+                setAppointments(response);        
+
             })
         }
     },[])
 
     return (
         <>
-        <NavBar/> 
+        <ArtistNavBar/> 
         <div className="citasContainer">
             <div className="container">
                 <h2 >Mis citas</h2>
