@@ -24,22 +24,8 @@ export const myAppointmentsCall = async(token, id) => {
     try {
         const response = await axios.get("http://localhost:3000/api/appointments/getAppointmentByClient/" + id, {
             headers: {"Authorization": `Bearer ${token}`}
-        })     
-       const appointments = response.data
-       const appointmentsWithArtistName = []
-       for (const appointment of appointments) {
-        const artistId = appointment.id
-        const artistDetails = await getArtistById(token, artistId);
-        if(artistDetails) {
-            appointmentsWithArtistName.push({
-                ...appointment, 
-                artistName: artistDetails.userName
-            })
-        } else {
-            appointmentsWithArtistName.push(appointment)
-        }
-       }
-        return appointmentsWithArtistName
+        })        
+        return response.data   
     } catch (error) {
         console.error("Error:" + error) 
     }
@@ -47,9 +33,10 @@ export const myAppointmentsCall = async(token, id) => {
 
 export const getArtistById = async(token, id) => {
     try {
-        const response = await axios.get("http://localhost:3000/api/users/userId/" + id, {
+        const response = await axios.get("http://localhost:3000/api/users/getArtistById/" + id, {
             headers: {"Authorization": `Bearer ${token}`}
-        })     
+        }) 
+        console.log(response.data)    
         return response.data
     } catch (error) {
         console.error("Error:" + error) 

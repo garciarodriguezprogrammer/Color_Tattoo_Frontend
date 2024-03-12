@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { myAppointmentsCall } from "../../services/apiCalls"
-import { AppointmentsCard } from "../../Components/AppointmentsCards/AppointmentsCards"
 import { NavBar } from "../../Components/NavBar/NavBar"
 import "./MyAppointments.css"
+import { ArtistAppointmentsCard } from "../../Components/AppointmentsCards/ArtistAppointmentsCards"
 
 export const GetMyAppointmentsArtist = () => {
 
@@ -27,20 +27,22 @@ export const GetMyAppointmentsArtist = () => {
         <>
         <NavBar/> 
         <div className="citasContainer">
-        <h2>Mis citas</h2>
-        {appointments.length > 0 ? (
-            appointments.map((appointment) => (
-                <AppointmentsCard
-                    key={appointment.id}
-                    artistName={appointment.artistName} // Asegúrate de que estos nombres coincidan con los de tus datos
-                    appointmentDate={appointment.appointmentDate}
-                    descriptionTattoo={appointment.descriptionTattoo}
-                    id={appointment.id}
-                />
-            ))
-        ) : (
-            <p>No tienes citas programadas.</p>
-        )}
+            <div className="container">
+                <h2 >Mis citas</h2>
+            </div> 
+                {appointments.length > 0 ? (
+                appointments.map((appointment) => (
+                    <ArtistAppointmentsCard
+                        key={appointment.id}
+                        clientName={appointment.clientName} // Asegúrate de que estos nombres coincidan con los de tus datos
+                        appointmentDate={appointment.appointmentDate}
+                        descriptionTattoo={appointment.descriptionTattoo}
+                        id={appointment.id}
+                    />
+                ))
+            ) : (
+                <p>No tienes citas programadas.</p>
+            )}
         </div>
         </>
     )
