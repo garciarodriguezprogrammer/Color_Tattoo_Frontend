@@ -7,7 +7,6 @@ import "./AllUsers.css"
 import { DeleteUsers } from '../../services/apiCalls'
 
 
-
 export const AllUsers = () => {
     const [users, setUsers] = useState([]) //Funcion que nos permite acceder y actualizar el estado de users
 
