@@ -12,6 +12,7 @@ export const NavBar = () => {
   const token = localStorage.getItem('token')
   const logMeOut = () => {
      localStorage.setItem('token', '')  
+     localStorage.setItem('id', '')
      setTimeout(() => {
       navegar('/home')
      }, 600)
