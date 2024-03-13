@@ -1,15 +1,17 @@
 import { AdminNavBar } from "../../Components/NavBar/adminNavBar";
 import { useState, useEffect } from "react";
 import { GetProfileData } from "../../services/apiCalls";
+import { useSelector } from "react-redux" //Esto es para recuperar datos del estado de redux AHORA
 
 
 export const AdminProfile = () => {
 
     const [datos, setDatos] = useState(null)
+    const id = useSelector(state => state.auth.userId) 
+    const token = useSelector(state => state.auth.token)
+
 
     useEffect(() => {
-        const id = localStorage.getItem("id")
-        const token = localStorage.getItem("token")
         GetProfileData(token, id)
             .then((data) => {
                 console.log(data)

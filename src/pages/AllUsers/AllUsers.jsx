@@ -5,14 +5,16 @@ import { AllUsersCard } from '../../Components/AllUsersCard/AllUsersCard'
 import { AdminNavBar } from '../../Components/NavBar/adminNavBar'
 import "./AllUsers.css"
 import { DeleteUsers } from '../../services/apiCalls'
+import { useSelector } from "react-redux" //Esto es para recuperar datos del estado de redux AHORA
 
 
 export const AllUsers = () => {
     const [users, setUsers] = useState([]) //Funcion que nos permite acceder y actualizar el estado de users
+    const token = useSelector(state => state.auth.token)
 
 
     useEffect(() => {  
-        const token =  localStorage.getItem('token')        
+        // const token =  localStorage.getItem('token')        
         BringAllUsers(token)
         .then((users) => {
              setUsers(users)

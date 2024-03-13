@@ -4,14 +4,16 @@ import "./MyAppointments.css"
 import { AdminAppointmentsCard } from "../../Components/AppointmentsCards/AdminAppointmentsCards"
 import { myAppointmentsCallAdmin } from "../../services/apiCalls"
 import { DeleteAppointment } from "../../services/apiCalls"
+import { useSelector } from "react-redux" //Esto es para recuperar datos del estado de redux AHORA
 
 export const GetMyAppointmentsAdmin = () => {
 
-    const [appointments, setAppointments] = useState([])
+    const [appointments, setAppointments] = useState([]) 
+    const token = useSelector(state => state.auth.token)
+
 
     //Esta funcion es un ejemplo de cuando recuperamos el token para ejecutar la funcion
     useEffect(() => {
-        const token = localStorage.getItem("token")
         if (token) {
             myAppointmentsCallAdmin(token)
                 .then((response) => {
@@ -39,7 +41,7 @@ export const GetMyAppointmentsAdmin = () => {
             <AdminNavBar />
             <div className="citasContainer">
                 <div className="container">
-                    <h2 >Mis citas</h2>
+                    <h2 >Todas las citas</h2>
                 </div>
                 {appointments.length > 0 ? (
                     appointments.map((appointment) => (

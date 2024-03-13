@@ -3,20 +3,20 @@ import { ArtistNavBar } from "../../Components/NavBar/artistNavBar"
 import "./MyAppointments.css"
 import { ArtistAppointmentsCard } from "../../Components/AppointmentsCards/ArtistAppointmentsCards"
 import { myAppointmentsCallArtist } from "../../services/apiCalls"
+import { useSelector } from "react-redux" //Esto es para recuperar datos del estado de redux AHORA
 
 export const GetMyAppointmentsArtist = () => {
 
     const [appointments, setAppointments] = useState([])
+    const id = useSelector(state => state.auth.userId) 
+    const token = useSelector(state => state.auth.token)
+
     
     //Esta funcion es un ejemplo de cuando recuperamos el token para ejecutar la funcion
     useEffect(() => { 
-        const id = localStorage.getItem("id")
-        const token = localStorage.getItem("token")
-        console.log(id)
         if(id && token) {
             myAppointmentsCallArtist(token, id)
-            .then((response) => {                
-                console.log(response)                     
+            .then((response) => {                                     
                 setAppointments(response);        
 
             })

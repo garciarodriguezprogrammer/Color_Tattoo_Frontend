@@ -28,11 +28,11 @@ export const ArtistNavBar = () => {
             <Nav.Link href="nada">Home</Nav.Link>
             <NavDropdown title="Mis citas" id="basic-nav-dropdown">
               <NavDropdown.Item href="/appointmentsArtists">Ver citas</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.1">Modificar</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">Ejemplo_1</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                Eliminar cita
+                Ejemplo_2
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Ejemplo_3</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Separated link
