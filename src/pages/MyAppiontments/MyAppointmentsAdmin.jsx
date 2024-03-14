@@ -39,7 +39,7 @@ export const GetMyAppointmentsAdmin = () => {
             <AdminNavBar />
             <div className="citasContainer">
                 <div className="container">
-                    <h2 >Todas las citas</h2>
+                    <h2 className="text-white">Todas las citas</h2>
                 </div>
                 {appointments.length > 0 ? (
                     appointments.map((appointment) => (

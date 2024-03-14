@@ -24,14 +24,15 @@ export const AdminProfile = () => {
         <>
 
             <AdminNavBar />
-            <div className="d-flex justify-contents-center">
+        <div className="container d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>           
+            
                 <div className="w-80">
                    {
                     datos?(
                      <div className="card"> 
                      <div className="card-body">
                       <>
-                      <h2>Nombre de admin: {datos.userName}</h2><h3>Email: {datos.email}</h3></>  
+                      <h4>Nombre de admin: {datos.userName}</h4><h5>Email: {datos.email}</h5></>  
                       </div>
                       </div>
                     )

@@ -29,14 +29,14 @@ export const Profile = () => {
         <>
 
             <NavBar />
-            <div className="d-flex justify-contents-center">
-                <div className="w-80">
+        <div className="container d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>           
+                <div>
                    {
                     datos?(
                      <div className="card"> 
                      <div className="card-body">
                       <>
-                      <h2>Nombre de usuario: {datos.userName}</h2><h3>Email: {datos.email}</h3></>  
+                      <h4>Nombre de usuario: {datos.userName}</h4><h5>Email: {datos.email}</h5></>  
                       </div>
                       <button className="btn btn-primary" onClick={() => updateProfile({id:datos.id, email:datos.email, userName:datos.userName})}>Modificar Perfil</button>
                       </div>
