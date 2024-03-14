@@ -8,7 +8,7 @@
     border: 2px solid #000;
     border-radius: 15px;
     margin: 10px;
-    background-color: #ffffff;
+    background-color: #f7f4f4;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     color: #000;
     font-family: "Arial", sans-serif;
@@ -16,13 +16,6 @@
     position: relative;
   }
   
-  /* .appointment-card:hover {
-    transition-duration: 1.25s;
-    transform: scale(1.5) rotate(360deg);
-    box-shadow: 0 0 100px 12px rgba(255, 128, 0, 0.964);
-    cursor: crosshair;
-    z-index: 10;
-  } */
   
   .appointment-card h2 {
     font-size: 18px;
@@ -32,14 +25,6 @@
     text-overflow: ellipsis;
   }
   
-  /* .appointment-card p {
-    margin: 0;
-    font-size: 14px;
-    white-space: nowrap;
-    overflow: hidden;
-    word-wrap: break-word;
-    text-overflow: ellipsis;
-  } */
   
   .appointment-card::before,
   .appointment-card::after {

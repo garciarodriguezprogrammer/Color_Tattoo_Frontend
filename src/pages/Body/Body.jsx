@@ -14,6 +14,8 @@ import { NuevaCita } from "../NuevaCita/NuevaCita"
 import { AdminProfile } from "../Profile/AdminProfile"
 import { GetMyAppointmentsArtist } from "../MyAppiontments/MyAppointmentsArtists"
 import { GetMyAppointmentsAdmin } from "../MyAppiontments/MyAppointmentsAdmin"
+import { ModificarCita } from "../MyAppiontments/UpdateAppointment"
+import { UpdateUser } from "../Profile/UpdateUser"
 
 export const Body = () => {
 
@@ -32,6 +34,8 @@ export const Body = () => {
                 <Route path="/nuevaCita/" element={<NuevaCita/>}></Route>
                 <Route path="/appointmentsArtists/" element={<GetMyAppointmentsArtist/>}></Route>
                 <Route path="/appointmentsAdmin/" element={<GetMyAppointmentsAdmin/>}></Route>
+                <Route path="/modificarCita/" element={<ModificarCita/>}></Route>
+                <Route path="/updateUser/" element={<UpdateUser/>}></Route>
           
             </Routes>
         </>

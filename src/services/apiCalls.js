@@ -127,6 +127,29 @@ export const GuardarCita = async(datosCita, token) => {
     }
 }
 
+export const UpdateAppointment = async(token, formData, id) => {
+    try {
+        const response = await axios.patch("http://localhost:3000/api/appointments/modifyAppointment/" + id, formData, {
+            headers: {"Authorization": `Bearer ${token}`}
+        })     
+        return response.data
+    } catch (error) {
+        console.error("Error:" + error) 
+    }
+}
+
+export const UpdateUserData = async(token, id, formData) => {
+    try {
+        const response = await axios.patch("http://localhost:3000/api/users//modifyProfile/" + id, formData, {
+            headers: {"Authorization": `Bearer ${token}`}
+        })     
+        return response.data
+    } catch (error) {
+        console.error("Error:" + error) 
+    }
+}
+
+
 
 
 export default {loginCall}

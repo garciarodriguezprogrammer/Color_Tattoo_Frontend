@@ -1,7 +1,7 @@
 import { AdminNavBar } from "../../Components/NavBar/adminNavBar";
 import { useState, useEffect } from "react";
 import { GetProfileData } from "../../services/apiCalls";
-import { useSelector } from "react-redux" //Esto es para recuperar datos del estado de redux AHORA
+import { useSelector } from "react-redux" 
 
 
 export const AdminProfile = () => {

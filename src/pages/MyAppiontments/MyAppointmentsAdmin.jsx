@@ -24,8 +24,6 @@ export const GetMyAppointmentsAdmin = () => {
     }, [])
 
     const eliminarCita = (id) => {
-        console.log("Se ha eliminado la cita con id" + id)
-        const token = localStorage.getItem('token')
         DeleteAppointment(token, id)
             .then((res) => {
                 console.log(res)

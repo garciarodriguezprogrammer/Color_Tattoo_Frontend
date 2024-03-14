@@ -4,6 +4,8 @@ import { AppointmentsCard } from "../../Components/AppointmentsCards/Appointment
 import { NavBar } from "../../Components/NavBar/NavBar"
 import "./MyAppointments.css"
 import { useSelector } from "react-redux" //Esto es para recuperar datos del estado de redux AHORA
+import { useNavigate } from "react-router-dom"
+
 
 
 export const GetMyAppointments = () => {
@@ -15,11 +17,16 @@ export const GetMyAppointments = () => {
         if (id && token) {
             myAppointmentsCall(token, id)
                 .then((res) => {
-                    console.log(res)
                     setAppointments(res)
                 })
         }
     }, [])
+
+    const navegar = useNavigate()
+
+    const modificarCita = (appointment) => {
+        navegar("/modificarCita", {state: {appointment}})
+    }
 
     return (
         <>
@@ -37,6 +44,7 @@ export const GetMyAppointments = () => {
                                 appointmentDate={appointment.appointmentDate}
                                 descriptionTattoo={appointment.descriptionTattoo}
                                 id={appointment.id}
+                                modificarCita={modificarCita}
                             />
                         ))
                     ) : (
