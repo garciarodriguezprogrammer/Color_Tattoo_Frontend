@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { GetArtists } from "../../services/apiCalls"
 import { GuardarCita } from "../../services/apiCalls"
 import { NavBar } from "../../Components/NavBar/NavBar"
-import { useSelector } from "react-redux" //Esto es para recuperar datos del estado de redux AHORA
+import { useSelector } from "react-redux" 
 
 
 export const NuevaCita = () => {
@@ -57,7 +57,6 @@ export const NuevaCita = () => {
         }
         GuardarCita(datosCita, token)
             .then((res) => {
-                console.log(res)
                 if (res) {
                     setSuccessMessage("Su cita ha sido creada exitosamente")
                     setTimeout(() => {

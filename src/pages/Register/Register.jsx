@@ -46,7 +46,6 @@ export function RegisterForm() {
                     <div className="container bg-danger" ref={errorRef} style={{ display: "none" }}>This user already exists</div>
                     {/* Formulario de registro, importamos AuthInput desde componentes */}
                     <div className="card p-4">
-
                         <form onSubmit={handleSubmit}>
                             <div className="mb-3"><AuthInput type={"text"} placeholder={"Name"} name={"userName"} handler={handleChange} /></div>
                             <div className="mb-3"><AuthInput type={"text"} placeholder={"Email"} name={"email"} handler={handleChange} /></div>

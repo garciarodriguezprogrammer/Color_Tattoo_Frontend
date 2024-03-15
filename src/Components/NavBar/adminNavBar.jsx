@@ -3,12 +3,11 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useNavigate } from 'react-router-dom'; //sino sale borro esto
+import { useNavigate } from 'react-router-dom'; 
 
 
 export const AdminNavBar = () => {
 
-  // esto es lo nuevo
   const navegar = useNavigate()  
   const token = localStorage.getItem('token')
   const logMeOut = () => {

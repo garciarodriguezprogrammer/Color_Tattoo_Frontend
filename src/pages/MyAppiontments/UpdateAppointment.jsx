@@ -32,7 +32,6 @@ export const ModificarCita = () => {
         e.preventDefault()
         UpdateAppointment(token, formData, id)
         .then((res) =>{
-            console.log(res)
             if(res){
                 navegar("/getAppointments")
             }

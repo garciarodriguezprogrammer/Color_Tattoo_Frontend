@@ -14,7 +14,6 @@ export const AdminProfile = () => {
     useEffect(() => {
         GetProfileData(token, id)
             .then((data) => {
-                console.log(data)
                 setDatos(data)
             })
     }, [])

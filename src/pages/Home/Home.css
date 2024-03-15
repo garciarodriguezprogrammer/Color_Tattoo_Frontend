@@ -16,7 +16,6 @@ body {
 
 .home-title {
     margin-bottom: 50px;
-    /* Espacio entre el título y los botones */
 }
 
 .titulo3 {
@@ -27,19 +26,14 @@ body {
 
 .btnHome {
     font-size: 1.5rem;
-    /* Tamaño de fuente más grande */
     padding: 15px 30px;
-    /* Botones más grandes */
     margin: 20px;
     border: none;
     border-radius: 50px;
-    /* Borde redondeado */
     color: #fff;
     background-color: transparent;
     border: 4px solid #ff5722;
-    /* Borde más grueso */
     box-shadow: 0 0 60px rgba(255, 86, 34, 0.635);
-    /* Sombra más pronunciada */
     transition: all 0.3s ease-in-out;
     margin: 80px 160px;
 }

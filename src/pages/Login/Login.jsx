@@ -27,7 +27,6 @@ export function LoginForm() {
         loginCall(loginData)
             .then((res) => {
                 if (!res) {
-                    console.log(res)
                     errorRef.current.style.display = "block"
                     navegar("/login");
                     return null;
@@ -41,8 +40,7 @@ export function LoginForm() {
                         token: res.token,
                         userId: decodedToken.id
                     }))
-                    // localStorage.setItem("id", decodedToken.id)  //Hemos gardado el id en localStorage para que sea accesible en toda la pagina y evitar llamadas a la api
-                    // localStorage.setItem("token", res.token)  //Hemos gardado el token en localStorage para que sea accesible en toda la pagina y evitar llamadas a la api
+                    
                     if (isUser) {
                         navegar("/profile")
                     } else if (isArtist) {

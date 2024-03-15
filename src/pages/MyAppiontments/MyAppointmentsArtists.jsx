@@ -3,7 +3,7 @@ import { ArtistNavBar } from "../../Components/NavBar/artistNavBar"
 import "./MyAppointments.css"
 import { ArtistAppointmentsCard } from "../../Components/AppointmentsCards/ArtistAppointmentsCards"
 import { myAppointmentsCallArtist } from "../../services/apiCalls"
-import { useSelector } from "react-redux" //Esto es para recuperar datos del estado de redux AHORA
+import { useSelector } from "react-redux" 
 
 export const GetMyAppointmentsArtist = () => {
 
@@ -11,8 +11,6 @@ export const GetMyAppointmentsArtist = () => {
     const id = useSelector(state => state.auth.userId) 
     const token = useSelector(state => state.auth.token)
 
-    
-    //Esta funcion es un ejemplo de cuando recuperamos el token para ejecutar la funcion
     useEffect(() => { 
         if(id && token) {
             myAppointmentsCallArtist(token, id)
@@ -34,7 +32,7 @@ export const GetMyAppointmentsArtist = () => {
                 appointments.map((appointment) => (
                     <ArtistAppointmentsCard
                         key={appointment.id}
-                        clientName={appointment.clientName} // Asegúrate de que estos nombres coincidan con los de tus datos
+                        clientName={appointment.clientName} 
                         appointmentDate={appointment.appointmentDate}
                         descriptionTattoo={appointment.descriptionTattoo}
                         id={appointment.id}

@@ -15,7 +15,6 @@ export const Profile = () => {
     useEffect(() => {
         GetProfileData(token, id)
             .then((data) => {
-                console.log(data)
                 setDatos(data)
             })
     }, [])

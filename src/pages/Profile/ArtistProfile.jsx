@@ -1,7 +1,7 @@
 import { ArtistNavBar } from "../../Components/NavBar/artistNavBar";
 import { useState, useEffect } from "react";
 import { GetProfileData } from "../../services/apiCalls";
-import { useSelector } from "react-redux" //Esto es para recuperar datos del estado de redux AHORA
+import { useSelector } from "react-redux" 
 
 
 
@@ -15,7 +15,6 @@ export const ArtistProfile = () => {
     useEffect(() => {
         GetProfileData(token, id)
             .then((data) => {
-                console.log(data)
                 setDatos(data)
             })
     }, [])

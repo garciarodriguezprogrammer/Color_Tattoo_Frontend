@@ -1,6 +1,5 @@
 import axios from "axios";
 
-//Sería una buena practica poner lo de const API_URL= etc() y sustituirmlo por lo de (`${etc}`)
 
 export const loginCall = async(loginData) => {
     try {
@@ -86,7 +85,7 @@ export const getArtistById = async(token, id) => {
     }
 } 
 
-//Aqui no ponemos id porque es de todos los usuarios
+
 export const BringAllUsers = async(token) => {
     const res = await axios.get("http://localhost:3000/api/users/getUsers", {
         headers: {"Authorization": `Bearer ${token}`}
@@ -148,9 +147,6 @@ export const UpdateUserData = async(token, id, formData) => {
         console.error("Error:" + error) 
     }
 }
-
-
-
 
 export default {loginCall}
 
