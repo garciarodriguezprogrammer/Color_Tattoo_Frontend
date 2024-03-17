@@ -4,19 +4,20 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom'; 
+import { useSelector, useDispatch } from 'react-redux';
+import { logOut } from '../../features/AuthSlice';
 
 
 export const ArtistNavBar = () => {
-
- const navegar = useNavigate()  
- const token = localStorage.getItem('token')
- const logMeOut = () => {
-    localStorage.setItem('token', '') 
-    localStorage.setItem('id', '') 
+  const isLoggedIn = useSelector(state => state.auth.isAuthenticated); // Accede al estado de autenticación desde Redux
+  const dispatch = useDispatch();
+  const navegar = useNavigate();
+  const handleLogout = () => {
+    dispatch(logOut()); 
     setTimeout(() => {
-     navegar('/home')
-    }, 600)
-   }
+      navegar('/home');
+    }, 600);
+  };
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -29,7 +30,9 @@ export const ArtistNavBar = () => {
             <NavDropdown title="Mis citas" id="basic-nav-dropdown">
               <NavDropdown.Item href="/appointmentsArtists">Ver citas</NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown.Item onClick={() => logMeOut()}>Cerrar sesión</NavDropdown.Item>
+
+            {isLoggedIn && <NavDropdown.Item onClick={handleLogout}>Cerrar sesión</NavDropdown.Item>}
+
           </Nav>
         </Navbar.Collapse>
       </Container>
